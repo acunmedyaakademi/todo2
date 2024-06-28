@@ -46,9 +46,7 @@ function App() {
 
 
   const deleteBtn = (index) => {
-    console.log("jf");
     let deletedTodo = todos.filter(todo => todo.id !== index)
-    console.log(deletedTodo);
     setTodos(deletedTodo)
   }
   return (
