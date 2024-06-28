@@ -49,6 +49,16 @@ function App() {
     let deletedTodo = todos.filter(todo => todo.id !== index)
     setTodos(deletedTodo)
   }
+
+  const editBtn = (index) => {
+    console.log("sjdfn");
+    const updatedTodos = todos.map(todo =>
+      todo.id === index ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
+
+    setTodos(updatedTodos)
+
+  }
   return (
     <>
       <div>
@@ -62,7 +72,12 @@ function App() {
 
       {todos.map(element => {
         return (
-          <li key={element.id}> {element.name}  <button onClick={() => deleteBtn(element.id)}>Sil</button></li>
+
+          <div key={element.id}>
+
+            <li className={element.isCompleted === true ? "tamamlandı" : "tamamlanmadı"} > {element.name} </li> <button onClick={() => deleteBtn(element.id)}>Sil</button>  <button onClick={() => editBtn(element.id)} >Tamamlandı</button>
+
+          </div>
 
         )
       })}
